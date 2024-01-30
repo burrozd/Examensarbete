@@ -6,11 +6,10 @@ const bookingSchema = new mongoose.Schema({
   serviceOption: String,
   specialRequests: String,
   phoneNumber: String,
-  email: String, // Add this line for the email field
+  email: String,
 });
 
 bookingSchema.pre("save", function(next) {
-  // Modify Booking ID generation
   if (!this.bookingId) {
     this.bookingId = Date.now().toString();
   }
