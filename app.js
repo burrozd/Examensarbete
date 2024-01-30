@@ -45,6 +45,7 @@ app.engine(
 );
 app.set("view engine", "hbs");
 app.set("views", __dirname + "/views");
+app.use("/images", express.static(__dirname + "/public/images"));
 
 app.use((req, res, next) => {
   res.locals.user = req.session.user;
@@ -138,8 +139,6 @@ app.post("/submit-booking", async (req, res) => {
     });
   }
 });
-
-// Existing code
 
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
